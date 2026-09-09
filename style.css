@@ -38,7 +38,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-deep); out
 
 img { max-width: 100%; display: block; }
 
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: 28px; padding-right: 28px; }
 
 /* ---------- Header ---------- */
 
@@ -46,6 +46,9 @@ header.site {
   background: var(--ink);
   color: var(--paper);
   border-bottom: 3px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-inner {
@@ -109,7 +112,8 @@ nav.site a.current {
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: 56px 0 44px;
+  padding-top: 56px;
+  padding-bottom: 44px;
   border-bottom: 1px solid var(--paper-line);
 }
 
@@ -183,7 +187,8 @@ nav.site a.current {
 /* ---------- Sections ---------- */
 
 section.block {
-  padding: 44px 0;
+  padding-top: 44px;
+  padding-bottom: 44px;
   border-bottom: 1px solid var(--paper-line);
 }
 
@@ -408,10 +413,10 @@ footer.site .wrap {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 780px) {
-  .wrap { padding: 0 22px; }
+  .wrap { padding-left: 22px; padding-right: 22px; }
   .header-inner { padding: 18px 22px 16px; }
-  .hero { padding: 40px 0 34px; }
-  section.block { padding: 34px 0; }
+  .hero { padding-top: 40px; padding-bottom: 34px; }
+  section.block { padding-top: 34px; padding-bottom: 34px; }
 }
 
 @media (max-width: 620px) {
@@ -448,7 +453,7 @@ footer.site .wrap {
 }
 
 @media (max-width: 400px) {
-  .wrap { padding: 0 16px; }
+  .wrap { padding-left: 16px; padding-right: 16px; }
   .header-inner { padding: 16px 16px 14px; }
   .hero .code { font-size: 12px; }
   .btn { font-size: 14px; padding: 13px 16px; }
