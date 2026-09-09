@@ -299,6 +299,10 @@ table.sched td.clo { white-space: nowrap; color: var(--gold-deep); font-size: 13
   background: var(--white);
 }
 
+.module-card + .module-card {
+  margin-top: 28px;
+}
+
 .module-figure {
   border-bottom: 1px solid var(--paper-line);
   background: var(--paper-deep);
