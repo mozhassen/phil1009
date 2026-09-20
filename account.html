@@ -34,17 +34,42 @@
   </section>
 
   <section class="wrap" style="padding-bottom: 60px;">
-    <div class="account-card">
+    <div class="account-card" id="login-picker">
       <h2>Student login</h2>
       <p>Choose your section and group to open its log-in page.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-        <a class="btn btn-gold" href="https://section7group1.moodiy.app/login/index.php" target="_blank" rel="noopener">Section 7 Group 1 &rarr;</a>
-        <a class="btn btn-gold" href="https://section7group2.moodiy.app/login/index.php" target="_blank" rel="noopener">Section 7 Group 2 &rarr;</a>
-        <a class="btn btn-gold" href="https://section8group1.moodiy.com/login/index.php" target="_blank" rel="noopener">Section 8 Group 1 &rarr;</a>
-        <a class="btn btn-gold" href="https://section8group2.moodiy.app/login/index.php" target="_blank" rel="noopener">Section 8 Group 2 &rarr;</a>
+        <button type="button" class="btn btn-gold" onclick="showLogin('https://section7group1.moodiy.app/login/index.php')">Section 7 Group 1 &rarr;</button>
+        <button type="button" class="btn btn-gold" onclick="showLogin('https://section7group2.moodiy.app/login/index.php')">Section 7 Group 2 &rarr;</button>
+        <button type="button" class="btn btn-gold" onclick="showLogin('https://section8group1.moodiy.com/login/index.php')">Section 8 Group 1 &rarr;</button>
+        <button type="button" class="btn btn-gold" onclick="showLogin('https://section8group2.moodiy.app/login/index.php')">Section 8 Group 2 &rarr;</button>
       </div>
     </div>
-    <p class="note" style="margin-top: 28px;">These links open the course log-in pages in a new tab. Make sure you use the site for your own section and group. Check course messaging and in-class announcements regularly.</p>
+
+    <div class="account-card" id="login-frame-card" style="display:none; padding: 0; overflow: hidden;">
+      <div style="display:flex; align-items:center; justify-content:space-between; padding: 14px 18px; border-bottom: 1px solid var(--paper-line);">
+        <button type="button" class="btn btn-outline" style="padding: 8px 14px;" onclick="hideLogin()">&larr; Back</button>
+        <a id="login-frame-fallback" class="btn btn-outline" style="padding: 8px 14px;" href="#" target="_blank" rel="noopener">Open in new tab instead &rarr;</a>
+      </div>
+      <iframe id="login-frame" src="" title="Course login" style="width:100%; height: 640px; border: none; display: block;"></iframe>
+    </div>
+
+    <p class="note" style="margin-top: 28px;">Sign-in opens right here on the page. If a section's log-in doesn't appear below, use "Open in new tab instead" — some login pages don't allow embedding. Make sure you use the site for your own section and group. Check course messaging and in-class announcements regularly.</p>
+
+    <script>
+      function showLogin(url) {
+        document.getElementById('login-picker').style.display = 'none';
+        var card = document.getElementById('login-frame-card');
+        card.style.display = 'block';
+        document.getElementById('login-frame').src = url;
+        document.getElementById('login-frame-fallback').href = url;
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      function hideLogin() {
+        document.getElementById('login-frame-card').style.display = 'none';
+        document.getElementById('login-frame').src = '';
+        document.getElementById('login-picker').style.display = 'block';
+      }
+    </script>
   </section>
 </main>
 
