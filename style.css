@@ -241,6 +241,11 @@ ul.plain li:first-child, ol.plain li:first-child { border-top: none; }
   border: 1px solid var(--paper-line);
 }
 
+.plo-grid {
+  grid-auto-flow: column;
+  grid-template-rows: repeat(6, auto);
+}
+
 .clo-grid .cell {
   background: var(--paper);
   padding: 16px 18px;
@@ -425,6 +430,7 @@ footer.site .wrap {
 
 @media (max-width: 620px) {
   .clo-grid { grid-template-columns: 1fr; }
+  .plo-grid { grid-auto-flow: row; grid-template-rows: none; }
   .account-grid { grid-template-columns: 1fr; }
 
   nav.site {
@@ -447,7 +453,7 @@ footer.site .wrap {
 
   .sched-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -22px; padding: 0 22px; }
   table.sched { font-size: 13px; min-width: 480px; }
-  table.sched th:nth-child(3), table.sched td:nth-child(3) { display: none; }
+  table.weekly th:nth-child(3), table.weekly td:nth-child(3) { display: none; }
 
   .module-body { padding: 22px 20px 24px; }
   .account-card { padding: 22px 20px; }
